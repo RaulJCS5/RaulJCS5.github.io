@@ -13,7 +13,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Outlet, useNavigate } from 'react-router';
-import raul from './images/phpiXf3yT_c2PM.jpg'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import walter from './images/icons8-walter-white-96.png'
 import { Theme } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -23,18 +24,12 @@ const pages = ['Home', 'About', 'Contact', 'Projects'];
 const settings = ['Profile', 'Account'];
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   toggleColorMode: () => void,
   theme: Theme,
 }
 
 function FixedNavigationBar(props: Props) {
   const { toggleColorMode, theme } = props;
-  const [thumbsUp, setThumbsUp] = useState(false);
-  const [thumbsDown, setThumbsDown] = useState(false);
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -61,7 +56,7 @@ function FixedNavigationBar(props: Props) {
   };
 
   return (
-    <Box sx={{ marginBottom: 5 }}>
+    <Box sx={{ marginBottom: 4 }}>
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -74,11 +69,12 @@ function FixedNavigationBar(props: Props) {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: 'inherit',
                 textDecoration: 'none',
               }}
             >
-              <Typography variant="h6" sx={{ cursor: 'pointer' }} onClick={() => { navigate('/') }}>RJCS</Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar alt="Walter" src={walter} sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }} />
+              </Box>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -87,7 +83,6 @@ function FixedNavigationBar(props: Props) {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
               >
                 <MenuIcon />
               </IconButton>
@@ -118,9 +113,7 @@ function FixedNavigationBar(props: Props) {
                 ))}
               </Menu>
             </Box>
-            {/*<RocketLaunchIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, cursor: 'pointer' }} onClick={() => { navigate('/') }} />*/}
             <Typography
-              variant="h5"
               noWrap
               sx={{
                 mr: 2,
@@ -129,11 +122,12 @@ function FixedNavigationBar(props: Props) {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: 'inherit',
                 textDecoration: 'none',
               }}
             >
-              <Typography variant="h6" sx={{ cursor: 'pointer' }} onClick={() => { navigate('/') }}>RJCS</Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar alt="Walter" src={walter} sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }} />
+              </Box>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
@@ -147,12 +141,12 @@ function FixedNavigationBar(props: Props) {
               ))}
             </Box>
             <Box sx={{ flexGrow: 0 }}>
-              <IconButton sx={{ ml: 1, marginRight: 1 }} onClick={toggleColorMode} color="inherit">
+              <IconButton sx={{ ml: 1, marginRight: 1, p: 0 }} onClick={toggleColorMode}>
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Raul Santos" src={raul} />
+                  <AccountCircleIcon></AccountCircleIcon>
                 </IconButton>
               </Tooltip>
               <Menu
