@@ -14,7 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Outlet, useNavigate } from 'react-router';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import walter from './images/icons8-walter-white-96.png'
+import TerminalIcon from '@mui/icons-material/Terminal';
 import { Theme } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -73,7 +73,7 @@ function FixedNavigationBar(props: Props) {
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar alt="Walter" src={walter} sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }} />
+                <TerminalIcon sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }} ></TerminalIcon>
               </Box>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -82,7 +82,7 @@ function FixedNavigationBar(props: Props) {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                sx={{p:0}}
+                sx={{ p: 0 }}
               >
                 <MenuIcon />
               </IconButton>
@@ -126,7 +126,7 @@ function FixedNavigationBar(props: Props) {
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar alt="Walter" src={walter} sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }} />
+                <TerminalIcon sx={{ p: 0, cursor: 'pointer' }} onClick={() => { navigate('/') }}></TerminalIcon>
               </Box>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -145,9 +145,9 @@ function FixedNavigationBar(props: Props) {
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
               {/*<Tooltip title="Open settings">*/}
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <AccountCircleIcon></AccountCircleIcon>
-                </IconButton>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <AccountCircleIcon></AccountCircleIcon>
+              </IconButton>
               {/*</Tooltip>
               <Menu
                 sx={{ mt: '45px' }}
