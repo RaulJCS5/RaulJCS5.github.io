@@ -78,11 +78,11 @@ function FixedNavigationBar(props: Props) {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
-                size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
+                sx={{p:0}}
               >
                 <MenuIcon />
               </IconButton>
@@ -144,11 +144,11 @@ function FixedNavigationBar(props: Props) {
               <IconButton sx={{ ml: 1, marginRight: 1, p: 0 }} onClick={toggleColorMode}>
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
-              <Tooltip title="Open settings">
+              {/*<Tooltip title="Open settings">*/}
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <AccountCircleIcon></AccountCircleIcon>
                 </IconButton>
-              </Tooltip>
+              {/*</Tooltip>
               <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
@@ -170,7 +170,7 @@ function FixedNavigationBar(props: Props) {
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}
-              </Menu>
+                </Menu>*/}
             </Box>
           </Toolbar>
         </Container>
