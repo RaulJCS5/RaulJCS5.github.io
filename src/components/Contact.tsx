@@ -11,6 +11,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub'
 import EmailIcon from '@mui/icons-material/Email'
 import { handleClick } from './FixedBottomNavigationBar';
+import { Container } from '@mui/system';
 
 export default function ActionAreaCard() {
   return (
@@ -48,12 +49,12 @@ export default function ActionAreaCard() {
               <EmailIcon />
             </IconButton>
           </Grid>
-          <Grid item>
+          {/*<Grid item>
             <Button onClick={() => handleClick('https://soundcloud.com/user-692546360')}>SoundCloud</Button>
           </Grid>
           <Grid item>
             <Button onClick={() => handleClick('https://discordapp.com/users/368011779760193537')}>Discord</Button>
-          </Grid>
+  </Grid>*/}
         </Grid>
       </CardContent>
     </Card>
@@ -62,11 +63,17 @@ export default function ActionAreaCard() {
 
 export const Contact = () => {
   return (
-    <Box sx={{
-      display: "flex",
-      justifyContent: "center",
-    }}>
-      <ActionAreaCard></ActionAreaCard>
+    <Box>
+      <Box sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <ActionAreaCard></ActionAreaCard>
+      </Box>
+      <Box sx={{ height: '55vh' }}>
+        {/* Your content goes here */}
+      </Box>
     </Box>
+
   )
 }
