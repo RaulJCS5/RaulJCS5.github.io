@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,16 +12,32 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { Outlet, useNavigate } from 'react-router';
 import raul from './images/phpiXf3yT_c2PM.jpg'
+import { Theme } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'About', 'Contact', 'Projects'];
+const settings = ['Profile', 'Account'];
 
-function FixedNavigationBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+interface Props {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  toggleColorMode: () => void,
+  theme: Theme,
+}
+
+function FixedNavigationBar(props: Props) {
+  const { toggleColorMode, theme } = props;
+  const [thumbsUp, setThumbsUp] = useState(false);
+  const [thumbsDown, setThumbsDown] = useState(false);
+  const navigate = useNavigate()
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -33,6 +50,12 @@ function FixedNavigationBar() {
     setAnchorElNav(null);
   };
 
+  const navigatePage = (e: React.MouseEvent<Element, MouseEvent>, page: string) => {
+    e.preventDefault()
+    const itemLower = page.toLowerCase()
+    navigate(itemLower === 'home' ? '/' : itemLower)
+  }
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -41,12 +64,9 @@ function FixedNavigationBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -57,9 +77,8 @@ function FixedNavigationBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Typography variant="h6" sx={{ cursor: 'pointer' }} onClick={() => { navigate('/') }}>RJCS</Typography>
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -90,18 +109,18 @@ function FixedNavigationBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} onClick={(e) => { navigatePage(e, page); handleCloseNavMenu() }}>
+                  <Typography key={page}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/*<RocketLaunchIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, cursor: 'pointer' }} onClick={() => { navigate('/') }} />*/}
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -113,21 +132,23 @@ function FixedNavigationBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Typography variant="h6" sx={{ cursor: 'pointer' }} onClick={() => { navigate('/') }}>RJCS</Typography>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={(e) => { navigatePage(e, page); handleCloseNavMenu() }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
+            <IconButton sx={{ ml: 1, marginRight: 1 }} onClick={toggleColorMode} color="inherit">
+              {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Raul Santos" src={raul} />
