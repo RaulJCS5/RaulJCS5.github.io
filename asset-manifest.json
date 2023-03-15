@@ -1,16 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.77eb11a2.js",
+    "main.js": "/static/js/main.eda01616.js",
     "static/js/787.405d7bfa.chunk.js": "/static/js/787.405d7bfa.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/ME.jpg": "/static/media/ME.a24bc4391f315c4ace41.jpg",
+    "static/media/330px-Battleship_game_board.svg.png": "/static/media/330px-Battleship_game_board.svg.586142277dbda58babad.png",
     "index.html": "/index.html",
     "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.77eb11a2.js.map": "/static/js/main.77eb11a2.js.map",
+    "main.eda01616.js.map": "/static/js/main.eda01616.js.map",
     "787.405d7bfa.chunk.js.map": "/static/js/787.405d7bfa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.77eb11a2.js"
+    "static/js/main.eda01616.js"
   ]
 }
