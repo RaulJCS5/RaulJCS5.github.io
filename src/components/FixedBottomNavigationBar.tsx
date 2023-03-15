@@ -10,35 +10,37 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub'
 import EmailIcon from '@mui/icons-material/Email'
 
+export const handleClick = (url: string) => {
+    window.location.href = url;
+};
+
 export default function FixedBottomNavigationBar() {
 
-    const handleClick = (url:string) => {
-        window.location.href = url;
-    };
+
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <BottomNavigation sx={{ position: 'absolute', bottom: 0 }}>
+        <Box>
+            <BottomNavigation>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Box>
                         <Typography variant='body2' color='text.secondary'>Copyright © 2023 Raul Santos</Typography>
                     </Box>
                     <Box>
-                        <IconButton onClick={()=>handleClick('https://www.linkedin.com/in/rauljosecsantos/')}>
+                        <IconButton onClick={() => handleClick('https://www.linkedin.com/in/rauljosecsantos/')}>
                             <LinkedInIcon />
                         </IconButton>
-                        <IconButton onClick={()=>handleClick('https://github.com/RaulJCS5')}>
+                        <IconButton onClick={() => handleClick('https://github.com/RaulJCS5')}>
                             <GitHubIcon />
                         </IconButton>
-                        <IconButton onClick={()=>handleClick('https://twitter.com/rauljosesan')}>
+                        <IconButton onClick={() => handleClick('https://twitter.com/rauljosesan')}>
                             <TwitterIcon />
                         </IconButton>
-                        <IconButton onClick={()=>handleClick('https://www.facebook.com/raul.jose.35/')}>
+                        <IconButton onClick={() => handleClick('https://www.facebook.com/raul.jose.35/')}>
                             <FacebookIcon />
                         </IconButton>
-                        <IconButton onClick={()=>handleClick('https://www.instagram.com/rauljcsantos')}>
+                        <IconButton onClick={() => handleClick('https://www.instagram.com/rauljcsantos')}>
                             <InstagramIcon />
                         </IconButton>
-                        <IconButton onClick={()=>handleClick('mailto:rauljosesantos@hotmail.com')}>
+                        <IconButton onClick={() => handleClick('mailto:rauljosesantos@hotmail.com')}>
                             <EmailIcon />
                         </IconButton>
                     </Box>
