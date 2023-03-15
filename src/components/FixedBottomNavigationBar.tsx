@@ -26,7 +26,7 @@ export default function FixedBottomNavigationBar() {
                     <Box>
                         <Typography variant='body2' color='text.secondary'>Copyright © 2023 Raul Santos</Typography>
                     </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 10 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', marginLeft:2, marginRight:2 }}>
                         <Typography variant='body2' sx={{ color: 'text.secondary' }}>Are you enjoying?</Typography>
                         <Box sx={{ marginLeft: 1 }}>
                             <IconButton size='small' onClick={() => { setThumbsUp(!thumbsUp); setThumbsDown(false) }}>
