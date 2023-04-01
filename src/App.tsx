@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useMemo, useState } from 'react'
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home } from './components/Home';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
@@ -47,7 +47,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter>
         <Box>
           <FixedNavigationBar toggleColorMode={toggleColorMode} theme={theme} />
           <Routes>
@@ -59,7 +59,7 @@ function App() {
           </Routes>
           <FixedBottomNavigationBar></FixedBottomNavigationBar>
         </Box>
-      </BrowserRouter >
+      </HashRouter >
     </ThemeProvider>
   );
 }
