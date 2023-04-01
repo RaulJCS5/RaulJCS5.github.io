@@ -70,9 +70,6 @@ export const Contact = () => {
       }}>
         <ActionAreaCard></ActionAreaCard>
       </Box>
-      <Box sx={{ height: '50vh' }}>
-        {/* Your content goes here */}
-      </Box>
     </Box>
 
   )

@@ -12,6 +12,7 @@ import FixedNavigationBar from './components/FixedNavigationBar';
 import { Box } from '@mui/system';
 import CssBaseline from '@mui/material/CssBaseline';
 import FixedBottomNavigationBar from './components/FixedBottomNavigationBar';
+import { FlexibleBottomNavBar } from './components/FlexibleBottomNavBar';
 
 function App() {
   const lightTheme = "light"
@@ -57,7 +58,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/*" element={<NoPage />} />
           </Routes>
-          <FixedBottomNavigationBar></FixedBottomNavigationBar>
+          <FlexibleBottomNavBar></FlexibleBottomNavBar>
         </Box>
       </HashRouter >
     </ThemeProvider>
